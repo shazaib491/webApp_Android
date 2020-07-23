@@ -1,0 +1,75 @@
+<app-navbar></app-navbar>
+<div class="container">
+<div class="row">
+    <div class="col-md-8 m-auto">
+        
+        
+          <div class="alert alert-danger" *ngIf="error" role="alert">
+            {{error.msg}}
+          </div>
+        <form [formGroup]="form" (ngSubmit)="onSubmit()" >
+            <div class="form-group">
+                <label for="">Email</label>
+                <input type="email" formControlName="email"  class="form-control is-invalid border-primary   border-top-0 border-left-0 border-right-0"
+                [ngClass]="{'is-invalid':form.get('email').touched && form.get('email').invalid}"
+                >
+                <div *ngIf="form.get('email').touched && form.get('email').invalid" class="invalid-feedback">
+                    <div *ngIf="form.get('email').errors.required">Email is required</div>
+                    <div *ngIf="form.get('email').errors.email">Email must be required</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="">Username</label>
+                <input type="text" formControlName="username" class="form-control border-primary border-top-0 border-left-0 border-right-0"
+                [ngClass]="{'is-invalid':form.get('username').touched && form.get('username').invalid}"
+                >
+                <div *ngIf="form.get('username').touched && form.get('username').invalid" class="invalid-feedback">
+                    <div *ngIf="form.get('username').errors.required">username is required</div>
+                </div>
+
+            </div>
+            <div class="form-group">
+                <label for="">Mobile</label>
+                <input type="text" formControlName="mobile" [ngClass]="{'is-invalid':form.get('mobile').touched && form.get('mobile').invalid}" class="form-control border-primary border-top-0 border-left-0 border-right-0">
+                <div *ngIf="form.get('mobile').touched && form.get('mobile').invalid" class="invalid-feedback">
+                    <div *ngIf="form.get('mobile').errors.required">Mobile no is required</div>
+                    <div *ngIf="form.get('mobile').errors.minlength">Mno should be 10 digit</div>
+                  </div>
+            </div>
+            <div class="form-group">
+                <label for="">City</label>
+                <input type="text" formControlName="city" [ngClass]="{'is-invalid':form.get('city').touched && form.get('city').invalid}" class="form-control border-primary border-top-0 border-left-0 border-right-0">
+                <div *ngIf="form.get('city').touched && form.get('city').invalid" class="invalid-feedback">
+                    <div *ngIf="form.get('city').errors.required">city is required</div>
+                  </div>
+            </div>
+            <div class="form-group">
+                <label for="">password</label>
+                <input type="text" formControlName="password" class="form-control border-primary border-top-0 border-left-0 border-right-0"
+                [ngClass]="{'is-invalid':form.get('password').touched && form.get('password').invalid}"
+                >
+
+                <div *ngIf="form.get('password').touched && form.get('password').invalid" class="invalid-feedback">
+                    <div *ngIf="form.get('password').errors.required" >password is required</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="">Confirm Password</label>
+                <input type="text" formControlName="cpassword" class="form-control border-primary border-top-0 border-left-0 border-right-0"
+                [ngClass]="{'is-invalid':form.get('cpassword').touched && form.get('cpassword').invalid}"
+                >
+                <div *ngIf="form.get('cpassword').touched && form.get('cpassword').invalid" class="invalid-feedback">
+                    <div *ngIf="form.get('cpassword').errors.required">password is required</div>
+                    
+                </div>
+            </div>
+            <button type="submit" *ngIf="form.valid" class="btn text-light btn-block" style="background-image: linear-gradient( 109.6deg,  rgba(9,9,121,1) 11.2%, rgba(144,6,161,1) 53.7%, rgba(0,212,255,1) 100.2% );"> Submit</button>
+            
+        </form>
+    </div>
+</div>
+</div>
+<br>
+<br><br>
+<br>
+<app-footer></app-footer>
